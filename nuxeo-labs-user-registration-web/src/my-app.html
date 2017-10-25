@@ -1,0 +1,161 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/gold-email-input/gold-email-input.html">
+<link rel="import" href="../bower_components/nuxeo-elements/nuxeo-connection.html">
+<link rel="import" href="../bower_components/nuxeo-elements/nuxeo-operation.html">
+<link rel="import" href="../bower_components/nuxeo-ui-elements/widgets/nuxeo-directory-suggestion.html">
+<link rel="import" href="../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+
+<dom-module id="my-app">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+    <style is="custom-style" include="paper-material-styles"></style>
+    <style>
+      .form {
+        width:50%;
+        height:100%;
+        margin: 0 auto;
+      }
+
+      paper-card {
+        width:100%;
+      }
+
+      .half {
+        max-width:48%;
+      }
+
+      paper-input, paper-textarea,gold-email-input {
+        margin-left: :1%;
+        margin-right: 2%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+
+      .card-content {
+        margin-bottom: 2%;
+      }
+
+      .flex {
+        min-width: 48%;
+      }
+
+      .logo {
+        margin: 0 auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width:50%;
+        display:block;
+      }
+
+      .result {
+        background-color: white;
+        height:30vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer {
+        height:100px;
+      }
+
+      .center {
+
+      }
+
+
+
+
+    </style>
+    <nuxeo-connection url="/nuxeo"></nuxeo-connection>
+    <nuxeo-operation id="requestOp" op="javascript.api_new_account_request" params="[[params]]"
+                     on-response="_handleResponse"></nuxeo-operation>
+    <div class="form">
+      <img class="logo" src=""/>
+      <iron-pages selected="{{selected}}">
+        <paper-card heading="Request a User Account">
+          <div class="card-content">
+            <form id="form" is="iron-form">
+              <gold-email-input class="half" label="Email" value="{{params.email}}" auto-validate required
+                                autocomplete></gold-email-input>
+              <div class="layout horizontal wrap">
+                <paper-input class="flex" label="First Name" value="{{params.firstname}}" required
+                             autocomplete></paper-input>
+                <paper-input class="flex" label="Last Name" value="{{params.lastname}}" required
+                             autocomplete></paper-input>
+                <paper-input class="flex" label="Company" value="{{params.company}}" required
+                             autocomplete></paper-input>
+                <paper-input class="flex" label="Department" value="{{params.department}}" required
+                             autocomplete></paper-input>
+                <paper-input class="flex" label="Job Title" value="{{params.jobTitle}}" required
+                             autocomplete></paper-input>
+                <!--nuxeo-directory-suggestion class="flex" label="Country" value="{{params.country}}"
+                                            directory-name="country"></nuxeo-directory-suggestion-->
+              </div>
+
+              <paper-textarea label="Justification" value="{{params.reason}}" required autocomplete></paper-textarea>
+            </form>
+          </div>
+          <div class="card-actions">
+            <paper-button on-tap="_submitRequest">SUBMIT</paper-button>
+          </div>
+        </paper-card>
+        <paper-material class="result layout horizontal" elevation="1">
+          <div class="center">
+            Your request for a user account has successfully been submitted.
+          </div>
+        </paper-material>
+      </iron-pages>
+      <div class="footer"></div>
+    </div>
+    <div>
+
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-app',
+      properties: {
+        params: {
+          type:Object,
+          value: {}
+        },
+        selected: {
+          type: Number,
+          value:0
+        }
+      },
+
+      _submitRequest:function() {
+        if (!this.$.form.validate()) return;
+        this.$.requestOp.execute();
+      },
+
+      _handleResponse:function(e) {
+        console.log(e);
+        if (e.detail.response['entity-type'] && e.detail.response['entity-type'] === 'document') {
+          this.selected = 1;
+        }
+      }
+
+    });
+
+  </script>
+</dom-module>

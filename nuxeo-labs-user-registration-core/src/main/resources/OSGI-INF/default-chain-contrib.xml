@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.vision.core.chains">
+  <extension target="org.nuxeo.automation.scripting.internals.AutomationScriptingComponent" point="operation">
+    <scriptedOperation id="javascript.api_new_account_request">
+      <inputType>Void</inputType>
+      <outputType>Void</outputType>
+      <category>javascript</category>
+      <description></description>
+      <script>
+        <![CDATA[
+        var genericQuery = "SELECT * FROM Document WHERE ecm:mixinType != 'HiddenInNavigation' AND ecm:isProxy = 0 AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState != 'deleted'";
+
+        function run(input, params) {
+
+          input = Auth.LoginAs(input, {});
+
+          var userRegistrationRootsQuery = genericQuery + " AND ecm:primaryType = 'UserRegistrationRoot'";
+          var userRegistrationRoot = null;
+
+          var userRegistrationRoots = Repository.Query(input, {'query': userRegistrationRootsQuery});
+
+          if (userRegistrationRoots.length === 0) {
+            var domainsQuery = genericQuery + " AND ecm:primaryType = 'Domain'";
+            var domains = Repository.Query(input, {'query': domainsQuery});
+            var domain = domains[0];
+
+            userRegistrationRoot = Document.Create(domain, {
+              type: 'UserRegistrationRoot',
+              name: 'UserRegistrationRoot',
+              properties: {
+                "dc:title": 'User Registration Root'
+              }
+            });
+          } else {
+            userRegistrationRoot = userRegistrationRoots[0];
+          }
+
+          var name = ctx.email.replace('@', '.at.').replace('+', '.');
+
+          var request = Document.Create(userRegistrationRoots, {
+            type: 'UserRegistration',
+            name: name,
+            properties: {
+              "dc:title": ctx.email,
+              "user_registration:email": ctx.email,
+              "user_registration:first_name": ctx.firstname,
+              "user_registration:last_name": ctx.lastname,
+              "user_registration:company": ctx.company,
+              "user_registration:wd_dept_event": ctx.department,
+              "user_registration:title": ctx.jobTitle,
+              "user_registration:justification": ctx.reason,
+              "user_registration:country": ctx.country
+            }
+          });
+
+          request = Context.StartWorkflow(request, {'id': 'UserRegistration'});
+
+          return request;
+
+        }
+
+        ]]>
+      </script>
+    </scriptedOperation>
+
+  </extension>
+</component>
