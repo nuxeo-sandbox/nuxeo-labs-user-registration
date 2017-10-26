@@ -19,6 +19,7 @@
 
           var userRegistrationRoots = Repository.Query(input, {'query': userRegistrationRootsQuery});
 
+          // If the UserRegistrationRoot does not exist, create it.
           if (userRegistrationRoots.length === 0) {
             var domainsQuery = genericQuery + " AND ecm:primaryType = 'Domain'";
             var domains = Repository.Query(input, {'query': domainsQuery});
