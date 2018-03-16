@@ -1,4 +1,4 @@
-<project name="nuxeo-labs-user-registration-plugin" default="build" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
+<project name="nuxeo-labs-user-registration" default="build" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
   <taskdef resource="org/nuxeo/build/antlib.xml" uri="urn:nuxeo-build"/>
   <taskdef resource="org/nuxeo/build/artifact/antlib.xml" uri="urn:nuxeo-artifact"/>
   <taskdef resource="net/sf/antcontrib/antlib.xml"/>
@@ -134,7 +134,7 @@
           name="install.templates"
           value="${line.separator}
   &lt;copy dir=&quot;${package.root}/install/templates&quot; todir=&quot;${env.templates}&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
-  &lt;config addtemplate=&quot;nuxeo-labs-user-registration-plugin&quot; /&gt;${line.separator}"/>
+  &lt;config addtemplate=&quot;nuxeo-labs-user-registration&quot; /&gt;${line.separator}"/>
       </then>
     </if>
 
