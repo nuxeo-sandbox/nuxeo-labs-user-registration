@@ -1,8 +1,8 @@
 <!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
 <package type="addon" name="nuxeo-labs-user-registration-plugin" version="@VERSION@">
-  <title>Nuxeo User Registation plugin</title>
+  <title>Nuxeo Labs User Registation</title>
   <description>
-    <p>Nuxeo User Registration</p>
+    <p>This plugin provides guest users with a portal to request a user account and a service for users to be invited via submission of a registration request</p>
   </description>
   <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
   <vendor>nuxeo</vendor>
