@@ -1,9 +1,8 @@
-# nuxeo-labs-user-registration
+# About nuxeo-labs-user-registration
 
-## About
 This plugin provides guest users with a portal to request a user account and a service for users to be invited via submission of a registration request
 
-## Usage
+# Usage
 
 The InviteUserOp operation provides a method to invite a user to the platform by using the InvitationService and submitting a request. Though, of course, the implementation of this package can surely vary, the use case for this was specifically:
 
@@ -13,11 +12,13 @@ The InviteUserOp operation provides a method to invite a user to the platform by
 - If administrator approves the request, InviteUserOp should be triggered which will register the request with the InvitationService and automatically accept
 - UserRegistrationRoot document type and UserRegistration document type are generally used for this setup
 
-## Notes
+# Notes
 
 - Anonymous user is enabled (this is not optional)
 
-## Build
+# Build
+
+[![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=Sandbox/sandbox_nuxeo-labs-user-registration_master)](https://qa.nuxeo.org/jenkins/job/Sandbox/job/sandbox_nuxeo-labs-user-registration_master/)
 
 Requirements
 
@@ -37,7 +38,7 @@ mvn clean install -DskipTests=true
 mvn test-compile
 ```
 
-## Support
+# Support
 
 **These features are not part of the Nuxeo Production platform.**
 
@@ -46,12 +47,12 @@ These solutions are provided for inspiration and we encourage customers to use t
 This is a moving project (no API maintenance, no deprecation process, etc.) If any of these solutions are found to be useful for the Nuxeo Platform in general, they will be integrated directly into platform, not maintained here.
 
 
-## Licensing
+# Licensing
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 
-## About Nuxeo
+# About Nuxeo
 
 Nuxeo dramatically improves how content-based applications are built, managed and deployed, making customers more agile, innovative and successful. Nuxeo provides a next generation, enterprise ready platform for building traditional and cutting-edge content oriented applications. Combining a powerful application development environment with SaaS-based tools and a modular architecture, the Nuxeo Platform and Products provide clear business value to some of the most recognizable brands including Verizon, Electronic Arts, Sharp, FICO, the U.S. Navy, and Boeing. Nuxeo is headquartered in New York and Paris.
 
