@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
  <component name="org.nuxeo.labs.user.registration" version="1.0">
    <extension point="operations" target="org.nuxeo.ecm.core.operation.OperationServiceComponent">
-     <operation class="org.nuxeo.labs.user.registration.automation.InviteUserOp" />
+     <operation class="org.nuxeo.user.registration.automation.InviteUserOp" />
    </extension>
  </component>

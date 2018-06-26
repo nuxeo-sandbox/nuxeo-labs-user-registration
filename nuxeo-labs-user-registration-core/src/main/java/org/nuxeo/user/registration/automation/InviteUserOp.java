@@ -1,4 +1,4 @@
-package org.nuxeo.labs.user.registration.automation;
+package org.nuxeo.user.registration.automation;
 
 import org.nuxeo.ecm.automation.OperationContext;
 import org.nuxeo.ecm.automation.core.Constants;
@@ -54,6 +54,12 @@ public class InviteUserOp {
         //invitation.setPropertyValue(config.getUserInfoTenantIdField(), user.getTenantId());
         invitation.setPropertyValue(config.getUserInfoCompanyField(), doc.getPropertyValue("user_registration:email"));
         invitation.setPropertyValue("registration:comment", comment);
+
+        if (info.get("registration:originatingUser") == null) {
+            String originatingUser = doc.getCoreSession().getPrincipal().getName();
+            info.put("registration:originatingUser",originatingUser);
+        }
+
         String inviteId =  invitationService.submitRegistrationRequest(invitation, info, validationMethod, autoAccept);
         ctx.put(outputVariable, inviteId);
         return doc;
