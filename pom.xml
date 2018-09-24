@@ -4,12 +4,12 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>9.10</version>
+    <version>10.2</version>
   </parent>
 
   <groupId>org.nuxeo.labs.user.registration</groupId>
   <artifactId>nuxeo-labs-user-registration-parent</artifactId>
-  <version>9.10-SNAPSHOT</version>
+  <version>10.2-SNAPSHOT</version>
   <name>Nuxeo User Registration parent</name>
   <description/>
   <packaging>pom</packaging>
@@ -73,17 +73,17 @@
       <dependency>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-core</artifactId>
-        <version>9.10-SNAPSHOT</version>
+        <version>10.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-web</artifactId>
-        <version>9.10-SNAPSHOT</version>
+        <version>10.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-package</artifactId>
-        <version>9.10-SNAPSHOT</version>
+        <version>10.2-SNAPSHOT</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
