@@ -31,7 +31,6 @@
     <!-- Base distribution NXR -->
     <copy todir="${outdir}">
       <artifact:file key="org.nuxeo.ecm.distribution:nuxeo-nxr-server::zip" />
-      <artifact:file key="org.nuxeo.marketplace.saml2:marketplace-saml2-login::zip:nxr" />
     </copy>
 
     <!-- Nuxeo bundles -->
@@ -70,14 +69,6 @@
       </artifact:set>
     </copy>
     <nx:rmdups dir="${outdir}/nxr/lib"/>
-
-    <unzip src="${outdir}/nuxeo-nxr-server-${nuxeo.distribution.version}.zip"
-           dest="${outdir}/nuxeo-nxr-server" />
-    <unzip src="${outdir}/marketplace-saml2-login-1.3.1-nxr.zip"
-           dest="${outdir}/nuxeo-nxr-server" />
-    <zip destfile="${outdir}/nuxeo-nxr-server-${nuxeo.distribution.version}.zip"
-         basedir="${outdir}/nuxeo-nxr-server" />
-
 
     <!-- Temporary ZIP Nuxeo NXR to compare with base distribution NXR -->
     <zip destfile="${outdir}/nxr-${maven.project.version}.zip" basedir="${outdir}/nxr"/>
@@ -133,8 +124,7 @@
         <var
           name="install.templates"
           value="${line.separator}
-  &lt;copy dir=&quot;${package.root}/install/templates&quot; todir=&quot;${env.templates}&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
-  &lt;config addtemplate=&quot;nuxeo-labs-user-registration&quot; /&gt;${line.separator}"/>
+  &lt;copy dir=&quot;${package.root}/install/templates&quot; todir=&quot;${env.templates}&quot; overwrite=&quot;true&quot; /&gt;${line.separator}"/>
       </then>
     </if>
 
