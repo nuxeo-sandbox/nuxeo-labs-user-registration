@@ -73,17 +73,17 @@
       <dependency>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-core</artifactId>
-        <version>{project.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-web</artifactId>
-        <version>{project.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-package</artifactId>
-        <version>{project.version}</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
