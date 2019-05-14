@@ -77,8 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .center {}
     </style>
-    <nuxeo-connection url="/nuxeo"></nuxeo-connection>
-    <nuxeo-operation id="requestOp" op="javascript.api_new_account_request" params="[[params]]" on-response="_handleResponse"></nuxeo-operation>
+    <iron-ajax id="xhr" url="/nuxeo/selfregistration" method="POST" on-response="_handleResponse"></iron-ajax>
     <div class="form">
       <img class="logo" src="" />
       <iron-pages selected="{{selected}}">
@@ -133,14 +132,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _submitRequest: function() {
         if (!this.$.form.validate()) return;
-        this.$.requestOp.execute();
+        this.$.xhr.body = JSON.stringify(this.params);
+        this.$.xhr.generateRequest();
       },
 
       _handleResponse: function(e) {
         console.log(e);
-        if (e.detail.response['entity-type'] && e.detail.response['entity-type'] === 'document') {
-          this.selected = 1;
-        }
+        this.selected = 1;
       }
 
     });
