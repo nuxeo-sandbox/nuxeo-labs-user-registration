@@ -2,7 +2,7 @@
 
   <extension point="openUrl" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
     <openUrl name="selfregistration">
-      <grantPattern>selfregistration</grantPattern>
+      <grantPattern>/nuxeo/site/selfregistration.*</grantPattern>
     </openUrl>
   </extension>
 
