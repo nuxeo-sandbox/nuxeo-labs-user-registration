@@ -13,35 +13,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
-<link rel="import" href="../bower_components/gold-email-input/gold-email-input.html">
 <link rel="import" href="../bower_components/nuxeo-elements/nuxeo-connection.html">
 <link rel="import" href="../bower_components/nuxeo-elements/nuxeo-operation.html">
 <link rel="import" href="../bower_components/nuxeo-ui-elements/widgets/nuxeo-directory-suggestion.html">
-<link rel="import" href="../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-form/iron-form.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 
 <dom-module id="my-app">
   <template>
-    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
-    <style is="custom-style" include="paper-material-styles"></style>
-    <style>
+    <style include="iron-flex iron-flex-alignment paper-material-styles">
       .form {
-        width:50%;
-        height:100%;
+        width: 50%;
+        height: 100%;
         margin: 0 auto;
       }
 
       paper-card {
-        width:100%;
+        width: 100%;
       }
 
       .half {
-        max-width:48%;
+        max-width: 48%;
       }
 
-      paper-input, paper-textarea,gold-email-input {
+      paper-input,
+      paper-textarea,
+      gold-email-input {
         margin-left: :1%;
         margin-right: 2%;
         margin-top: 2%;
@@ -60,57 +60,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 0 auto;
         margin-top: 5%;
         margin-bottom: 5%;
-        width:50%;
-        display:block;
+        width: 50%;
+        display: block;
       }
 
       .result {
         background-color: white;
-        height:30vh;
+        height: 30vh;
         align-items: center;
         justify-content: center;
       }
 
       .footer {
-        height:100px;
+        height: 100px;
       }
 
-      .center {
-
-      }
-
-
-
-
+      .center {}
     </style>
     <nuxeo-connection url="/nuxeo"></nuxeo-connection>
-    <nuxeo-operation id="requestOp" op="javascript.api_new_account_request" params="[[params]]"
-                     on-response="_handleResponse"></nuxeo-operation>
+    <nuxeo-operation id="requestOp" op="javascript.api_new_account_request" params="[[params]]" on-response="_handleResponse"></nuxeo-operation>
     <div class="form">
-      <img class="logo" src=""/>
+      <img class="logo" src="" />
       <iron-pages selected="{{selected}}">
         <paper-card heading="Request a User Account">
           <div class="card-content">
-            <form id="form" is="iron-form">
-              <gold-email-input class="half" label="Email" value="{{params.email}}" auto-validate required
-                                autocomplete></gold-email-input>
-              <div class="layout horizontal wrap">
-                <paper-input class="flex" label="First Name" value="{{params.firstname}}" required
-                             autocomplete></paper-input>
-                <paper-input class="flex" label="Last Name" value="{{params.lastname}}" required
-                             autocomplete></paper-input>
-                <paper-input class="flex" label="Company" value="{{params.company}}" required
-                             autocomplete></paper-input>
-                <paper-input class="flex" label="Department" value="{{params.department}}" required
-                             autocomplete></paper-input>
-                <paper-input class="flex" label="Job Title" value="{{params.jobTitle}}" required
-                             autocomplete></paper-input>
-                <!--nuxeo-directory-suggestion class="flex" label="Country" value="{{params.country}}"
-                                            directory-name="country"></nuxeo-directory-suggestion-->
-              </div>
-
-              <paper-textarea label="Justification" value="{{params.reason}}" required autocomplete></paper-textarea>
-            </form>
+            <iron-form id="form">
+              <form>
+                <paper-input label="Email" class="flex" type="email" value="{{params.email}}" auto-validate required autocomplete></paper-input>
+                <div class="layout horizontal wrap">
+                  <paper-input class="flex" label="First Name" value="{{params.firstname}}" required autocomplete></paper-input>
+                  <paper-input class="flex" label="Last Name" value="{{params.lastname}}" required autocomplete></paper-input>
+                </div>
+                <div class="layout horizontal wrap">
+                  <paper-input class="flex" label="Company" value="{{params.company}}" required autocomplete></paper-input>
+                  <paper-input class="flex" label="Department" value="{{params.department}}" required autocomplete></paper-input>
+                  <paper-input class="flex" label="Job Title" value="{{params.jobTitle}}" required autocomplete></paper-input>
+                </div>
+                <paper-textarea label="Tell us Why You Are requesting Access" value="{{params.reason}}" rows="3" required autocomplete></paper-textarea>
+              </form>
+            </iron-form>
           </div>
           <div class="card-actions">
             <paper-button on-tap="_submitRequest">SUBMIT</paper-button>
@@ -134,21 +122,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'my-app',
       properties: {
         params: {
-          type:Object,
+          type: Object,
           value: {}
         },
         selected: {
           type: Number,
-          value:0
+          value: 0
         }
       },
 
-      _submitRequest:function() {
+      _submitRequest: function() {
         if (!this.$.form.validate()) return;
         this.$.requestOp.execute();
       },
 
-      _handleResponse:function(e) {
+      _handleResponse: function(e) {
         console.log(e);
         if (e.detail.response['entity-type'] && e.detail.response['entity-type'] === 'document') {
           this.selected = 1;
@@ -156,6 +144,5 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     });
-
   </script>
 </dom-module>
