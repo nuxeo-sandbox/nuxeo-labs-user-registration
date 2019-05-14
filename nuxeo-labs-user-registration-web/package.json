@@ -1,5 +1,5 @@
 {
-  "name": "user-registration",
+  "name": "nuxeo-labs-user-registration",
   "devDependencies": {
     "cpr": "^2.0.2",
     "eslint": "^3.12.0",
