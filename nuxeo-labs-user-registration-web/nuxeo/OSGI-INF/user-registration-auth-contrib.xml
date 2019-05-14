@@ -8,10 +8,10 @@
     </startURLPattern>
   </extension>
 
-  <!--extension point="openUrl" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
+  <extension point="openUrl" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
     <openUrl name="user-registration">
       <grantPattern>user_registration</grantPattern>
     </openUrl>
-  </extension-->
+  </extension>
 
 </component>
