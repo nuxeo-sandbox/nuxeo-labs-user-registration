@@ -6,4 +6,6 @@ Bundle-Version: 1.0.0
 Bundle-Name: nuxeo-labs-user-registration-core
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: nuxeo-labs-user-registration-core;singleton=true
-Nuxeo-Component: OSGI-INF/operation-contrib.xml
+Nuxeo-WebModule: org.nuxeo.ecm.webengine.app.WebEngineModule;name=selfregistration;extends=base;headless=true;package=org/nuxeo/user/registration/endpoint
+Nuxeo-Component: OSGI-INF/operation-contrib.xml,
+    OSGI-INF/registration-endpoint-auth-contrib.xml

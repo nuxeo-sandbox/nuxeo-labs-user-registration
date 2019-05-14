@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.vision.core.chains">
+  <extension target="org.nuxeo.automation.scripting.internals.AutomationScriptingComponent" point="operation">
+    <scriptedOperation id="javascript.api_new_account_request">
+      <inputType>Void</inputType>
+      <outputType>Void</outputType>
+      <category>javascript</category>
+      <description></description>
+      <script>
+        <![CDATA[
+
+        function run(input, params) {
+
+        }
+
+        ]]>
+      </script>
+    </scriptedOperation>
+
+  </extension>
+</component>

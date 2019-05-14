@@ -1,0 +1,9 @@
+<component name="org.nuxeo.labs.user.registration.authentication.polymer.user-registration">
+
+  <extension point="openUrl" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
+    <openUrl name="selfregistration">
+      <grantPattern>selfregistration</grantPattern>
+    </openUrl>
+  </extension>
+
+</component>
