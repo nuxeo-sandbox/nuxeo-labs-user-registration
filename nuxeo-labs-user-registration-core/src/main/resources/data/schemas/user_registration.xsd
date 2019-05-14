@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:nxs="http://www.nuxeo.org/ecm/project/schemas/nuxeo-labs-user-registration/user_registration"
+           targetNamespace="http://www.nuxeo.org/ecm/project/schemas/nuxeo-labs-user-registration/user_registration">
+
+  <!-- helper XSD definitions for list types -->
+  <xs:complexType name="content"> 
+    <xs:sequence> 
+      <xs:element name="encoding" type="xs:string"/>  
+      <xs:element name="mime-type" type="xs:string"/>  
+      <xs:element name="data" type="xs:base64Binary"/>  
+      <xs:element name="name" type="xs:string"/>  
+      <xs:element name="length" type="xs:long"/>  
+      <xs:element name="digest" type="xs:string"/> 
+    </xs:sequence> 
+  </xs:complexType>  
+  <xs:simpleType name="stringList"> 
+    <xs:list itemType="xs:string"/> 
+  </xs:simpleType>  
+  <xs:simpleType name="doubleList"> 
+    <xs:list itemType="xs:double"/> 
+  </xs:simpleType>  
+  <xs:simpleType name="dateList"> 
+    <xs:list itemType="xs:date"/> 
+  </xs:simpleType>  
+  <xs:simpleType name="integerList"> 
+    <xs:list itemType="xs:integer"/> 
+  </xs:simpleType>  
+  <xs:simpleType name="booleanList"> 
+    <xs:list itemType="xs:boolean"/> 
+  </xs:simpleType>  
+  <xs:complexType name="blobList"> 
+    <xs:sequence> 
+      <xs:element name="item" type="nxs:content" minOccurs="0" maxOccurs="unbounded"/> 
+    </xs:sequence> 
+  </xs:complexType>  
+  <xs:element name="address_1" type="xs:string"/>
+  <xs:element name="address_2" type="xs:string"/>
+  <xs:element name="city" type="xs:string"/>
+  <xs:element name="country" type="xs:string"/>
+  <xs:element name="company" type="xs:string"/>
+  <xs:element name="email" type="xs:string"/>
+  <xs:element name="first_name" type="xs:string"/>
+  <xs:element name="justification" type="xs:string"/>
+  <xs:element name="last_name" type="xs:string"/>
+  <xs:element name="state" type="xs:string"/>
+  <xs:element name="telephone" type="xs:string"/>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="wd_dept_event" type="xs:string"/>
+  <xs:element name="zip_postal" type="xs:string"/>
+</xs:schema>
