@@ -3,7 +3,7 @@
   <extension point="startURL" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
     <startURLPattern>
       <patterns>
-        <pattern>user_registration/</pattern>
+        <pattern>user_registration</pattern>
       </patterns>
     </startURLPattern>
   </extension>
