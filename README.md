@@ -1,6 +1,6 @@
 # About nuxeo-labs-user-registration
 
-This plugin provides guest users with a portal to request a user account and a service for users to be invited via submission of a registration request
+This plugin provides a portal to request a user account and a service for users to be invited via submission of a registration request
 
 # Usage
 
@@ -11,10 +11,6 @@ The InviteUserOp operation provides a method to invite a user to the platform by
 - As Guest, user submits form for a registration request which triggers automation scripts for administrators to review and subsequently approve/decline the request
 - If administrator approves the request, InviteUserOp should be triggered which will register the request with the InvitationService and automatically accept
 - UserRegistrationRoot document type and UserRegistration document type are generally used for this setup
-
-# Notes
-
-- Anonymous user is enabled (this is not optional)
 
 # Build
 
