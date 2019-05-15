@@ -39,6 +39,9 @@ public class InviteUserOp {
     @Param(name = "comment", required = false)
     protected String comment;
 
+    @Param(name = "group", required = false)
+    protected String group= "members";
+
     @Param(name = "Output Variable", required = true)
     protected String outputVariable;
 
@@ -50,7 +53,7 @@ public class InviteUserOp {
         invitation.setPropertyValue(config.getUserInfoFirstnameField(), doc.getPropertyValue("user_registration:first_name"));
         invitation.setPropertyValue(config.getUserInfoLastnameField(), doc.getPropertyValue("user_registration:last_name"));
         invitation.setPropertyValue(config.getUserInfoEmailField(),  doc.getPropertyValue("user_registration:email"));
-        invitation.setPropertyValue(config.getUserInfoGroupsField(), new String[]{"members"});
+        invitation.setPropertyValue(config.getUserInfoGroupsField(), new String[]{group});
         //invitation.setPropertyValue(config.getUserInfoTenantIdField(), user.getTenantId());
         invitation.setPropertyValue(config.getUserInfoCompanyField(), doc.getPropertyValue("user_registration:email"));
         invitation.setPropertyValue("registration:comment", comment);
