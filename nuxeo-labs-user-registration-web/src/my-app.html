@@ -73,6 +73,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .center {}
+
+      paper-button{
+        color: white;
+        background: #111111;
+      }
+
+      paper-button:hover {
+        background: #404040;
+      }
     </style>
     <iron-ajax id="xhr" url="/nuxeo/site/selfregistration" method="POST"
                content-type="application/json" on-response="_handleResponse">
