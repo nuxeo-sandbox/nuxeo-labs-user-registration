@@ -1,11 +1,11 @@
 <!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
 <package type="addon" name="nuxeo-labs-user-registration" version="@VERSION@">
-  <title>Nuxeo Labs User Registation</title>
+  <title>Nuxeo User Self-Registation</title>
   <description>
-    <p>This plugin provides guest users with a portal to request a user account and a service for users to be invited via submission of a registration request</p>
+    <p>This plugin provides a portal to request a user account via submission of a registration request</p>
   </description>
   <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
-  <vendor>nuxeo</vendor>
+  <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
   <!-- <hotreload-support>false</hotreload-support> -->
@@ -14,7 +14,6 @@
   <nuxeo-validation>none</nuxeo-validation>
   <!-- Production State: production_ready | testing | proto -->
   <production-state>testing</production-state>
-  <supported>false</supported>
   <platforms>
     <platform>server-@DISTRIB_VERSION@</platform>
     <platform>server-@DISTRIB_VERSION@-HF*</platform>
@@ -37,5 +36,5 @@
   <license>Apache License, Version 2.0</license>
   <license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
   <!-- Visibility: PRIVATE | MARKETPLACE | DEV | PUBLIC -->
-  <visibility>DEV</visibility>
+  <visibility>PUBLIC</visibility>
 </package>
