@@ -2,9 +2,9 @@
 <package type="addon" name="nuxeo-labs-user-registration" version="@VERSION@">
   <title>Nuxeo User Self-Registation</title>
   <description>
-    <p>This plugin provides a portal to request a user account via submission of a registration request</p>
-  </description>
-  <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
+  <p>This plugin provides a portal to request a user account via submission of a registration request</p>
+</description>
+  <home-page>https://github.com/nuxeo-sandbox/nuxeo-labs-user-registration</home-page>
   <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
