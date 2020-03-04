@@ -17,7 +17,7 @@ import java.util.Map;
 import static org.nuxeo.ecm.user.invite.UserInvitationService.ValidationMethod;
 
 @Operation(id = InviteUserOp.ID, category = Constants.CAT_SERVICES, label = "Invite a user",
-    description = "Stores a registration request and returns its ID.")
+    description = "Send invitation for user to create account.")
 public class InviteUserOp {
 
     public static final String ID = "Service.InviteUser";
