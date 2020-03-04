@@ -23,9 +23,9 @@ It is up to you to decide how the request is handled. A typical flow involves cr
 
 The plugin includes a schema named "user_registration" for storing the registration request data. Currently this schema required by the `Service.InviteUser` operation. The expected values are:
 
-* user_registration:email
-* user_registration:first_name
-* user_registration:last_name
+* `user_registration:email`
+* `user_registration:first_name`
+* `user_registration:last_name`
 
 ## TODO
 
