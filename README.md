@@ -27,11 +27,6 @@ The plugin includes a schema named "user_registration" for storing the registrat
 * `user_registration:first_name`
 * `user_registration:last_name`
 
-## TODO
-
-* Refactor `Service.InviteUser` to not require a certain schema but instead use params
-* Remove document and schema contribs, they aren't needed
-
 # Requirements
 
 The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See [my-app.html](nuxeo-labs-user-registration-web/src/my-app.html) for CSS details.
