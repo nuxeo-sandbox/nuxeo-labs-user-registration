@@ -1,16 +1,40 @@
 # About nuxeo-labs-user-registration
 
-This plugin provides a portal to request a user account and a service for users to be invited via submission of a registration request
+This plugin provides a Web portal so that an anonymous user may request a user account, and an operation to leverage the Nuxeo Platform's `UserInvitationService` to complete the registration.
+
+Note that the `UserInvitationService` performs the actual user registration. This service takes care of sending the user an invitation email for registration, which allows them to set their own password when creating the account. I.e. this plugin does *not* create users.
+
+Note also that this plugin is an example of exposing resources for anonymous access, *without* enabling [full anonymous access](https://doc.nuxeo.com/n/4X8), in particular:
+
+* The `user_registration` endpoint, which provides access to the web portal
+* The `javascript.api_new_account_request` Automation request, which does not require authentication to access
 
 # Usage
 
-The InviteUserOp operation provides a method to invite a user to the platform by using the InvitationService and submitting a request. Though, of course, the implementation of this package can surely vary, the use case for this was specifically:
+The plug-in provides the following default flow:
 
-- User navigates to nuxeo site
-- User hits my-app.html allowing them to either login or remain as Guest
-- As Guest, user submits form for a registration request which triggers automation scripts for administrators to review and subsequently approve/decline the request
-- If administrator approves the request, InviteUserOp should be triggered which will register the request with the InvitationService and automatically accept
-- UserRegistrationRoot document type and UserRegistration document type are generally used for this setup
+* An anonymous user accesses the endpoint `<yourserver>/nuxeo/user_registration` where they will find the self-registration form (`my-app.html`)
+* They fill in the form and submit the request
+* The request info is sent to the Automation Script `javascript.api_new_account_request`
+
+It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request (see "UserRegistration Document Type" below), running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
+
+## user_registration Schema
+
+The plugin includes a schema named "user_registration" for storing the registration request data. Currently this schema required by the `Service.InviteUser` operation. The expected values are:
+
+* `user_registration:email`
+* `user_registration:first_name`
+* `user_registration:last_name`
+
+## TODO
+
+* Refactor `Service.InviteUser` to not require a certain schema but instead use params
+* Remove document and schema contribs, they aren't needed
+
+# Requirements
+
+The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See [my-app.html](nuxeo-labs-user-registration-web/src/my-app.html) for CSS details.
 
 # Build
 
