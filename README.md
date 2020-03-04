@@ -45,7 +45,7 @@ git clone https://github.com/nuxeo-sandbox/nuxeo-labs-user-registration
 cd nuxeo-labs-user-registration
 mvn clean install
 ```
-Notice that for unit test, credentials are set differenty (see below or in the source code). To compile without running the tests:
+Notice that for unit test, credentials are set differently (see below or in the source code). To compile without running the tests:
 
 ```
 mvn clean install -DskipTests=true
