@@ -30,7 +30,7 @@ The plugin includes a document type definition called "UserRegistration" for sto
 
 # Requirements
 
-The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See (my-app.html)[nuxeo-labs-user-registration-web/src/my-app.html] for CSS details.
+The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See [my-app.html](nuxeo-labs-user-registration-web/src/my-app.html) for CSS details.
 
 # Build
 
