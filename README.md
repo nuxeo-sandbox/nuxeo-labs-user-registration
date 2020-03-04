@@ -19,14 +19,18 @@ The plug-in provides the following default flow:
 
 It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request (see "UserRegistration Document Type" below), running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
 
-## UserRegistration Document Type
+## user_registration Schema
 
-The plugin includes a document type definition called "UserRegistration" for storing the registration request data. Currently this document type is required by the `Service.InviteUser` operation so you need to use this type when validating the request.
+The plugin includes a schema named "user_registration" for storing the registration request data. Currently this schema required by the `Service.InviteUser` operation. The expected values are:
+
+* user_registration:email
+* user_registration:first_name
+* user_registration:last_name
 
 ## TODO
 
-* Refactor `Service.InviteUser` to not require a document but instead use params
-* Remove document contribs, they aren't needed
+* Refactor `Service.InviteUser` to not require a certain schema but instead use params
+* Remove document and schema contribs, they aren't needed
 
 # Requirements
 
