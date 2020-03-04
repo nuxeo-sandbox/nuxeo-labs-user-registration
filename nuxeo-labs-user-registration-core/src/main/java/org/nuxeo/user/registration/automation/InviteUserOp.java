@@ -17,7 +17,7 @@ import java.util.Map;
 import static org.nuxeo.ecm.user.invite.UserInvitationService.ValidationMethod;
 
 @Operation(id = InviteUserOp.ID, category = Constants.CAT_SERVICES, label = "Invite a user",
-        description = "Stores a registration request and returns its ID.")
+    description = "Stores a registration request and returns its ID.")
 public class InviteUserOp {
 
     public static final String ID = "Service.InviteUser";
@@ -49,7 +49,7 @@ public class InviteUserOp {
     protected String comment;
 
     @Param(name = "group", required = false)
-    protected String group= "members";
+    protected String group = "members";
 
     @Param(name = "Output Variable", required = true)
     protected String outputVariable;
@@ -61,7 +61,7 @@ public class InviteUserOp {
         invitation.setPropertyValue(config.getUserInfoUsernameField(), email);
         invitation.setPropertyValue(config.getUserInfoFirstnameField(), first_name);
         invitation.setPropertyValue(config.getUserInfoLastnameField(), last_name);
-        invitation.setPropertyValue(config.getUserInfoEmailField(),  email);
+        invitation.setPropertyValue(config.getUserInfoEmailField(), email);
         invitation.setPropertyValue(config.getUserInfoGroupsField(), new String[]{group});
         //invitation.setPropertyValue(config.getUserInfoTenantIdField(), user.getTenantId());
         invitation.setPropertyValue(config.getUserInfoCompanyField(), email);
@@ -69,10 +69,10 @@ public class InviteUserOp {
 
         if (info.get("registration:originatingUser") == null) {
             String originatingUser = doc.getCoreSession().getPrincipal().getName();
-            info.put("registration:originatingUser",originatingUser);
+            info.put("registration:originatingUser", originatingUser);
         }
 
-        String inviteId =  invitationService.submitRegistrationRequest(invitation, info, validationMethod, autoAccept);
+        String inviteId = invitationService.submitRegistrationRequest(invitation, info, validationMethod, autoAccept);
         ctx.put(outputVariable, inviteId);
         return doc;
     }
