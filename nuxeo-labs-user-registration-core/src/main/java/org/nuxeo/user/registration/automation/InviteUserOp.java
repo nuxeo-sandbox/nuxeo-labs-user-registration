@@ -27,6 +27,15 @@ public class InviteUserOp {
     @Context
     protected UserInvitationService invitationService;
 
+    @Param(name = "email", required = true)
+    protected String email;
+
+    @Param(name = "first_name", required = true)
+    protected String first_name;
+
+    @Param(name = "last_name", required = true)
+    protected String last_name;
+
     @Param(name = "validationMethod", required = false)
     protected ValidationMethod validationMethod = ValidationMethod.EMAIL;
 
@@ -49,13 +58,13 @@ public class InviteUserOp {
     public DocumentModel run(DocumentModel doc) {
         DocumentModel invitation = invitationService.getUserRegistrationModel(null);
         UserRegistrationConfiguration config = invitationService.getConfiguration();
-        invitation.setPropertyValue(config.getUserInfoUsernameField(), doc.getPropertyValue("user_registration:email"));
-        invitation.setPropertyValue(config.getUserInfoFirstnameField(), doc.getPropertyValue("user_registration:first_name"));
-        invitation.setPropertyValue(config.getUserInfoLastnameField(), doc.getPropertyValue("user_registration:last_name"));
-        invitation.setPropertyValue(config.getUserInfoEmailField(),  doc.getPropertyValue("user_registration:email"));
+        invitation.setPropertyValue(config.getUserInfoUsernameField(), email);
+        invitation.setPropertyValue(config.getUserInfoFirstnameField(), first_name);
+        invitation.setPropertyValue(config.getUserInfoLastnameField(), last_name);
+        invitation.setPropertyValue(config.getUserInfoEmailField(),  email);
         invitation.setPropertyValue(config.getUserInfoGroupsField(), new String[]{group});
         //invitation.setPropertyValue(config.getUserInfoTenantIdField(), user.getTenantId());
-        invitation.setPropertyValue(config.getUserInfoCompanyField(), doc.getPropertyValue("user_registration:email"));
+        invitation.setPropertyValue(config.getUserInfoCompanyField(), email);
         invitation.setPropertyValue("registration:comment", comment);
 
         if (info.get("registration:originatingUser") == null) {

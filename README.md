@@ -17,15 +17,7 @@ The plug-in provides the following default flow:
 * They fill in the form and submit the request
 * The request info is sent to the Automation Script `javascript.api_new_account_request`
 
-It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request (see "UserRegistration Document Type" below), running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
-
-## user_registration Schema
-
-The plugin includes a schema named "user_registration" for storing the registration request data. Currently this schema required by the `Service.InviteUser` operation. The expected values are:
-
-* `user_registration:email`
-* `user_registration:first_name`
-* `user_registration:last_name`
+It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request, running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
 
 # Requirements
 
