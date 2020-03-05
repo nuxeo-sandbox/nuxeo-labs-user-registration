@@ -55,7 +55,7 @@ public class InviteUserOp {
     protected String outputVariable;
 
     @OperationMethod
-    public DocumentModel run(DocumentModel doc) {
+    public void run() {
         DocumentModel invitation = invitationService.getUserRegistrationModel(null);
         UserRegistrationConfiguration config = invitationService.getConfiguration();
         invitation.setPropertyValue(config.getUserInfoUsernameField(), email);
@@ -68,15 +68,12 @@ public class InviteUserOp {
         invitation.setPropertyValue("registration:comment", comment);
 
         if (info.get("registration:originatingUser") == null) {
-            // TODO: reafactor this to remove the requirement of a document as input?
-            String originatingUser = doc.getCoreSession().getPrincipal().getName();
-            // String originatingUser = ctx.getCoreSession().getPrincipal().getName();
+            String originatingUser = ctx.getCoreSession().getPrincipal().getName();
             info.put("registration:originatingUser", originatingUser);
         }
 
         String inviteId = invitationService.submitRegistrationRequest(invitation, info, validationMethod, autoAccept);
         ctx.put(outputVariable, inviteId);
-        return doc;
     }
 }
 
