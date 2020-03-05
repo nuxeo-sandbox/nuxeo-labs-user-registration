@@ -48,8 +48,8 @@ public class InviteUserOp {
     @Param(name = "comment", required = false)
     protected String comment;
 
-    @Param(name = "group", required = false)
-    protected String group = "members";
+    @Param(name = "groups", required = false)
+    protected String[] groups = {"members"};
 
     @Param(name = "Output Variable", required = true)
     protected String outputVariable;
@@ -62,13 +62,15 @@ public class InviteUserOp {
         invitation.setPropertyValue(config.getUserInfoFirstnameField(), first_name);
         invitation.setPropertyValue(config.getUserInfoLastnameField(), last_name);
         invitation.setPropertyValue(config.getUserInfoEmailField(), email);
-        invitation.setPropertyValue(config.getUserInfoGroupsField(), new String[]{group});
+        invitation.setPropertyValue(config.getUserInfoGroupsField(), groups);
         //invitation.setPropertyValue(config.getUserInfoTenantIdField(), user.getTenantId());
         invitation.setPropertyValue(config.getUserInfoCompanyField(), email);
         invitation.setPropertyValue("registration:comment", comment);
 
         if (info.get("registration:originatingUser") == null) {
+            // TODO: reafactor this to remove the requirement of a document as input?
             String originatingUser = doc.getCoreSession().getPrincipal().getName();
+            // String originatingUser = ctx.getCoreSession().getPrincipal().getName();
             info.put("registration:originatingUser", originatingUser);
         }
 
