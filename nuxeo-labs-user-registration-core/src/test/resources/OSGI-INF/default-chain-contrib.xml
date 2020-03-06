@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <component name="org.nuxeo.vision.core.chains">
   <extension target="org.nuxeo.automation.scripting.internals.AutomationScriptingComponent" point="operation">
-    <scriptedOperation id="javascript.api_new_account_request">
+    <scriptedOperation id="javascript.api_UserRegistration_requestAccount">
       <inputType>Void</inputType>
       <outputType>Void</outputType>
       <category>javascript</category>

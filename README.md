@@ -7,7 +7,7 @@ Note that the `UserInvitationService` performs the actual user registration. Thi
 Note also that this plugin is an example of exposing resources for anonymous access, *without* enabling [full anonymous access](https://doc.nuxeo.com/n/4X8), in particular:
 
 * The `user_registration` endpoint, which provides access to the web portal
-* The `javascript.api_new_account_request` Automation request, which does not require authentication to access
+* The `javascript.api_UserRegistration_requestAccount` Automation request, which does not require authentication to access
 
 # Usage
 
@@ -15,11 +15,11 @@ The plug-in provides the following default flow:
 
 * An anonymous user accesses the endpoint `<yourserver>/nuxeo/user_registration` where they will find the self-registration form (`my-app.html`)
 * They fill in the form and submit the request
-* The request info is sent to the Automation Script `javascript.api_new_account_request`
+* The request info is sent to the Automation Script `javascript.api_UserRegistration_requestAccount`
 
 It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request, running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
 
-## Automation Script javascript.api_new_account_request
+## Automation Script javascript.api_UserRegistration_requestAccount
 
 The registration form calls this Automation Script with the registration info.
 

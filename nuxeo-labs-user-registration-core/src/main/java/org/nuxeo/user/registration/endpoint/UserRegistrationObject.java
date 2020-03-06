@@ -46,7 +46,7 @@ public class UserRegistrationObject extends ModuleRoot {
             OperationContext ctx = new OperationContext();
             ctx.setCoreSession(session);
             OperationChain chain = new OperationChain("processUserRegistrationRequest");
-            chain.add("javascript.api_new_account_request").
+            chain.add("javascript.api_UserRegistration_requestAccount").
                     set("request",json);
             as.run(ctx, chain);
             return Response.status(Response.Status.OK).build();
