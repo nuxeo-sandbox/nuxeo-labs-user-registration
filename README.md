@@ -19,6 +19,36 @@ The plug-in provides the following default flow:
 
 It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request, running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
 
+## Automation Script javascript.api_new_account_request
+
+Note: you need to implement this script in your Studio project. The following information is sent in `params.request`:
+
+property | description
+--- | ---
+email | string | true | Will be the user name in Nuxeo
+firstname | string | true
+lastname | string | true
+company | string | true | The UUID of the `UserInvitation` document is returned here
+department | string | false | List of groups for the new user; default is "members"
+jobTitle | string | false | Can be used to set values on the `UserInvitation` document, for example to change `registration:originatingUser`
+reason | string | false
+
+## Operation Service.InviteUser
+
+param | type | required | description
+--- | --- | --- | ---
+email | string | true | Will be the user name in Nuxeo
+first_name | string | true
+last_name | string | true
+Output Variable | string | true | The UUID of the `UserInvitation` document is returned here
+groups | string | false | List of groups for the new user; default is "members"
+info | string | false | Can be used to set values on the `UserInvitation` document, for example to change `registration:originatingUser`
+validationMethod | string | false | Default "Email"
+autoAccept | string | false
+comment | string | false | Stored in the `regisration:comment` field of the `UserInvitation` document
+
+Reminder: this operation does _not_ create users. Unless the user accepts the invitation (which is sent by the UserInvitiationService), no user will be created in Nuxeo.
+
 # Requirements
 
 The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See [my-app.html](nuxeo-labs-user-registration-web/src/my-app.html) for CSS details.
