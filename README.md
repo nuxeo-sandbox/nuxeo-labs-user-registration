@@ -21,30 +21,34 @@ It is up to you to decide how the request is handled. A typical flow involves cr
 
 ## Automation Script javascript.api_new_account_request
 
+The registration form calls this Automation Script with the registration info.
+
 Note: you need to implement this script in your Studio project. The following information is sent in `params.request`:
 
-property | description
---- | ---
-email | string | true | Will be the user name in Nuxeo
-firstname | string | true
-lastname | string | true
-company | string | true | The UUID of the `UserInvitation` document is returned here
-department | string | false | List of groups for the new user; default is "members"
-jobTitle | string | false | Can be used to set values on the `UserInvitation` document, for example to change `registration:originatingUser`
-reason | string | false
+property | type | description
+--- | --- | ---
+email | string | Will be the user name in Nuxeo
+firstname | string |
+lastname | string |
+company | string |
+department | string |
+jobTitle | string |
+reason | string |
 
 ## Operation Service.InviteUser
+
+This operation uses the UserInvitationService to invite a user.
 
 param | type | required | description
 --- | --- | --- | ---
 email | string | true | Will be the user name in Nuxeo
 first_name | string | true
 last_name | string | true
-Output Variable | string | true | The UUID of the `UserInvitation` document is returned here
-groups | string | false | List of groups for the new user; default is "members"
-info | string | false | Can be used to set values on the `UserInvitation` document, for example to change `registration:originatingUser`
+Output Variable | string | true | Name of the context variable; the UUID of the `UserInvitation` document is returned here
+groups | string[] | false | List of groups for the new user; default is `{"members"}`
+info | key/value map | false | Can be used to set values on the `UserInvitation` document, for example to change `registration:originatingUser`
 validationMethod | string | false | Default "Email"
-autoAccept | string | false
+autoAccept | boolean | false | Default "true"
 comment | string | false | Stored in the `regisration:comment` field of the `UserInvitation` document
 
 Reminder: this operation does _not_ create users. Unless the user accepts the invitation (which is sent by the UserInvitiationService), no user will be created in Nuxeo.
