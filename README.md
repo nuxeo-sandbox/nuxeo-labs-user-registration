@@ -17,7 +17,7 @@ The plug-in provides the following default flow:
 * They fill in the form and submit the request
 * The request info is sent to the Automation Script `javascript.api_UserRegistration_requestAccount`
 
-It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request, running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. A Studio Template will be available to help scaffold this flow.
+It is up to you to decide how the request is handled. A typical flow involves creating a document to track the request, running a workflow on that document to track the approval, etc. In particular you will call the `Service.InviteUser` operation to complete the registration request, when ready. The "Nuxeo Self Registration" [Studio Template](https://doc.nuxeo.com/n/vOI/) is available to help scaffold this flow.
 
 ## Automation Script javascript.api_UserRegistration_requestAccount
 
