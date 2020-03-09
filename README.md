@@ -1,8 +1,8 @@
 # About nuxeo-labs-user-registration
 
-This plugin provides a Web portal so that an anonymous user may request a user account, and an operation to leverage the Nuxeo Platform's `UserInvitationService` to complete the registration.
+This plugin provides a Web portal so that an anonymous user may request a user account, and an operation to leverage the Nuxeo Platform's ``UserInvitationService`` to complete the registration.
 
-Note that the `UserInvitationService` performs the actual user registration. This service takes care of sending the user an invitation email for registration, which allows them to set their own password when creating the account. I.e. this plugin does *not* create users.
+Note that the ``UserInvitationService`` performs the actual user registration. This service takes care of sending the user an invitation email for registration, which allows them to set their own password when creating the account. I.e. this plugin does *not* create users.
 
 Note also that this plugin is an example of exposing resources for anonymous access, *without* enabling [full anonymous access](https://doc.nuxeo.com/n/4X8), in particular:
 
@@ -37,7 +37,7 @@ reason | string |
 
 ## Operation Service.InviteUser
 
-This operation uses the UserInvitationService to invite a user.
+This operation uses the `UserInvitationService` to invite a user.
 
 param | type | required | description
 --- | --- | --- | ---
