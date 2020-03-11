@@ -55,7 +55,7 @@ Reminder: this operation does _not_ create users. Unless the user accepts the in
 
 # Requirements
 
-The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See [my-app.html](nuxeo-labs-user-registration-web/src/my-app.html) for CSS details.
+The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo.png`. See [my-app.html](nuxeo-labs-user-registration-web/src/my-app.html) for CSS details. Note that the Studio template contains a default logo that you can override.
 
 # Build
 
