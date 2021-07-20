@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.nuxeo.labs.user.registration</groupId>
         <artifactId>nuxeo-labs-user-registration-parent</artifactId>
-        <version>10.10-SNAPSHOT</version>
+        <version>2021.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>nuxeo-labs-user-registration-core</artifactId>
     <name>Nuxeo User Registration Core</name>
@@ -50,12 +50,12 @@
         </dependency>
         <dependency>
             <groupId>org.nuxeo.ecm.platform</groupId>
-            <artifactId>nuxeo-platform-tag-core</artifactId>
+            <artifactId>nuxeo-platform-tag</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.nuxeo.ecm.platform</groupId>
-            <artifactId>nuxeo-platform-url-core</artifactId>
+            <artifactId>nuxeo-platform-url</artifactId>
             <scope>test</scope>
         </dependency>
 

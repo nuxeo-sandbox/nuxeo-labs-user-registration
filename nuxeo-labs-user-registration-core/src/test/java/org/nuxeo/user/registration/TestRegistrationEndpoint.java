@@ -40,7 +40,6 @@ public class TestRegistrationEndpoint {
         String url = BASE_URL + ":"+port+"/"+ UserRegistrationObject.PATH;
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(url);
-        //post.setEntity(new InputStreamEntity(getClass().getResourceAsStream("/files/callback.xml")));
         HttpResponse response = client.execute(post);
         Assert.assertEquals(200,response.getStatusLine().getStatusCode());
     }

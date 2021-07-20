@@ -27,13 +27,13 @@ public class InviteUserOp {
     @Context
     protected UserInvitationService invitationService;
 
-    @Param(name = "email", required = true)
+    @Param(name = "email")
     protected String email;
 
-    @Param(name = "first_name", required = true)
+    @Param(name = "first_name")
     protected String first_name;
 
-    @Param(name = "last_name", required = true)
+    @Param(name = "last_name")
     protected String last_name;
 
     @Param(name = "validationMethod", required = false)
@@ -51,7 +51,7 @@ public class InviteUserOp {
     @Param(name = "groups", required = false)
     protected String[] groups = {"members"};
 
-    @Param(name = "Output Variable", required = true)
+    @Param(name = "Output Variable")
     protected String outputVariable;
 
     @OperationMethod
@@ -63,7 +63,6 @@ public class InviteUserOp {
         invitation.setPropertyValue(config.getUserInfoLastnameField(), last_name);
         invitation.setPropertyValue(config.getUserInfoEmailField(), email);
         invitation.setPropertyValue(config.getUserInfoGroupsField(), groups);
-        //invitation.setPropertyValue(config.getUserInfoTenantIdField(), user.getTenantId());
         invitation.setPropertyValue(config.getUserInfoCompanyField(), email);
         invitation.setPropertyValue("registration:comment", comment);
 

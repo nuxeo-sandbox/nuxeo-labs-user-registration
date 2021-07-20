@@ -7,12 +7,10 @@ import org.nuxeo.ecm.automation.AutomationService;
 import org.nuxeo.ecm.automation.OperationChain;
 import org.nuxeo.ecm.automation.OperationContext;
 import org.nuxeo.ecm.automation.OperationException;
-import org.nuxeo.ecm.core.api.CloseableCoreSession;
 import org.nuxeo.ecm.core.api.CoreInstance;
 import org.nuxeo.ecm.core.api.CoreSession;
 import org.nuxeo.ecm.core.api.NuxeoException;
 import org.nuxeo.ecm.webengine.model.WebObject;
-import org.nuxeo.ecm.webengine.model.impl.ModuleRoot;
 import org.nuxeo.runtime.api.Framework;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +27,7 @@ import java.nio.charset.Charset;
  */
 @Path("/selfregistration")
 @WebObject(type = "selfregistration")
-public class UserRegistrationObject extends ModuleRoot {
+public class UserRegistrationObject {
 
     protected static final Log log = LogFactory.getLog(UserRegistrationObject.class);
 
@@ -52,11 +50,6 @@ public class UserRegistrationObject extends ModuleRoot {
             return Response.status(Response.Status.OK).build();
         } catch (OperationException e) {
             throw new NuxeoException(e);
-        } finally {
-            if (session != null) {
-                ((CloseableCoreSession) session).close();
-                session = null;
-            }
         }
     }
 
