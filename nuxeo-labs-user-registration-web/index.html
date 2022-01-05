@@ -7,9 +7,12 @@
   <meta name="description"
         content="User Registration">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet"
+        href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer
+          src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
   <style include="iron-flex iron-flex-alignment paper-material-styles">
     .form {
@@ -19,15 +22,7 @@
     }
 
     .paper-card {
-      width: 512px;
-    }
-
-    .card-content {
-      margin-bottom: 2%;
-    }
-
-    .flex {
-      min-width: 48%;
+      width: 100%;
     }
 
     .logo {
@@ -36,57 +31,52 @@
       margin-bottom: 5%;
       display: block;
     }
-
-    .result {
-      background-color: white;
-      height: 30vh;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer {
-      height: 100px;
-    }
   </style>
 </head>
 
 <body>
 
   <div class="form">
+
     <img class="logo"
          src="/nuxeo/img/user-registration-logo.png" />
-    <div class="paper-card mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Request a User Account</h2>
-    </div>
-    <form action="#">
-      <div class="card-content">
 
-                 <div class="mdl-textfield mdl-js-textfield">
-                  <input class="mdl-textfield__input" type="email" required>
-                  <label class="mdl-textfield__label" for="sample1">Email</label>
-                </div>
+    <!-- User request card -->
+    <div class="paper-card mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Request a User Account</h2>
+      </div>
+      <form action="#">
+        <div class="mdl-card__supporting-text">
+
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input"
+                   type="email"
+                   required>
+            <label class="mdl-textfield__label"
+                   for="sample1">Email</label>
+          </div>
 
           <div class="layout horizontal wrap">
             <label>First Name</label>
-            <input class="flex"
+            <input class=""
                    required></input>
             <label>Last Name</label>
-            <input class="flex"
+            <input class=""
                    label="Last Name"
                    required></input>
           </div>
           <div class="layout horizontal wrap">
             <label>Company</label>
-            <input class="flex"
+            <input class=""
                    label="Company"
                    required></input>
             <label>Department</label>
-            <input class="flex"
+            <input class=""
                    label="Department"
                    required></input>
             <label>Title</label>
-            <input class="flex"
+            <input class=""
                    label="Job Title"
                    required></input>
           </div>
@@ -96,19 +86,22 @@
                  required></input>
 
         </div>
-        <div class="card-actions">
+        <div class="mdl-card__actions mdl-card--border">
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">SUBMIT</button>
         </div>
       </form>
 
     </div>
-    <div class="result layout horizontal"
+
+    <!-- Display result to user. -->
+    <div class="hidden"
          elevation="1">
       <div>
         Your request for a user account has successfully been submitted.
       </div>
     </div>
-    <div class="footer"></div>
+
+
   </div>
 </body>
 
