@@ -1,91 +1,109 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Self User Registration</title>
-    <meta name="description" content="User Registration">
+<head>
+  <meta charset="utf-8">
+  <title>Self User Registration</title>
+  <meta name="description"
+        content="User Registration">
 
-    <style include="iron-flex iron-flex-alignment paper-material-styles">
-      .form {
-        width: 50%;
-        height: 100%;
-        margin: 0 auto;
-      }
+  <style include="iron-flex iron-flex-alignment paper-material-styles">
+    .form {
+      width: 50%;
+      height: 100%;
+      margin: 0 auto;
+    }
 
-      .paper-card {
-        width: 100%;
-      }
+    .paper-card {
+      width: 100%;
+    }
 
-      .card-content {
-        margin-bottom: 2%;
-      }
+    .card-content {
+      margin-bottom: 2%;
+    }
 
-      .flex {
-        min-width: 48%;
-      }
+    .flex {
+      min-width: 48%;
+    }
 
-      .logo {
-        margin: 0 auto;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        display: block;
-      }
+    .logo {
+      margin: 0 auto;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      display: block;
+    }
 
-      .result {
-        background-color: white;
-        height: 30vh;
-        align-items: center;
-        justify-content: center;
-      }
+    .result {
+      background-color: white;
+      height: 30vh;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .footer {
-        height: 100px;
-      }
-    </style>
-  </head>
+    .footer {
+      height: 100px;
+    }
+  </style>
+</head>
 
-  <body>
+<body>
 
-    <div class="form">
-      <img class="logo" src="/nuxeo/img/user-registration-logo.png" />
-      <div class="paper-card">
-        <h1>Request a User Account</h1>
-            <form>
-              <div class="card-content">
+  <div class="form">
+    <img class="logo"
+         src="/nuxeo/img/user-registration-logo.png" />
+    <div class="paper-card">
+      <h1>Request a User Account</h1>
+      <form>
+        <div class="card-content">
 
-              <label>Email</label>
-              <input class="flex" type="email" required></input>
-              <div class="layout horizontal wrap">
-                <label>First Name</label>
-                <input class="flex" required></input>
-                <label>Last Name</label>
-                <input class="flex" label="Last Name" required></input>
-              </div>
-              <div class="layout horizontal wrap">
-                <label>Company</label>
-                <input class="flex" label="Company" required></input>
-                <label>Department</label>
-                <input class="flex" label="Department" required></input>
-                <label>Title</label>
-                <input class="flex" label="Job Title" required></input>
-              </div>
-              <label>Tell us Why You Are requesting Access</label>
-              <input label="Tell us Why You Are requesting Access" rows="3" required></input>
+          <label>Email</label>
+          <input class="flex"
+                 type="email"
+                 required></input>
+          <div class="layout horizontal wrap">
+            <label>First Name</label>
+            <input class="flex"
+                   required></input>
+            <label>Last Name</label>
+            <input class="flex"
+                   label="Last Name"
+                   required></input>
+          </div>
+          <div class="layout horizontal wrap">
+            <label>Company</label>
+            <input class="flex"
+                   label="Company"
+                   required></input>
+            <label>Department</label>
+            <input class="flex"
+                   label="Department"
+                   required></input>
+            <label>Title</label>
+            <input class="flex"
+                   label="Job Title"
+                   required></input>
+          </div>
+          <label>Tell us Why You Are requesting Access</label>
+          <input label="Tell us Why You Are requesting Access"
+                 rows="3"
+                 required></input>
 
-            </div>
-              <div class="card-actions">
-                <input type="submit" value="SUBMIT"></input>
-              </div>
-            </form>
-
-      </div>
-      <div class="result layout horizontal" elevation="1">
-        <div>
-          Your request for a user account has successfully been submitted.
         </div>
-      </div>
-      <div class="footer"></div>
+        <div class="card-actions">
+          <input type="submit"
+                 value="SUBMIT"></input>
+        </div>
+      </form>
+
     </div>
-    </body>
+    <div class="result layout horizontal"
+         elevation="1">
+      <div>
+        Your request for a user account has successfully been submitted.
+      </div>
+    </div>
+    <div class="footer"></div>
+  </div>
+</body>
+
 </html>
