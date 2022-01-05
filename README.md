@@ -59,7 +59,9 @@ The self-service Web portal expects a logo at `/nuxeo/img/user-registration-logo
 
 # Build
 
+<!-- Hide for now as this server is no longer publicly accessible.
 [![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=Sandbox/sandbox_nuxeo-labs-user-registration-master)](https://qa.nuxeo.org/jenkins/job/Sandbox/job/sandbox_nuxeo-labs-user-registration-master/)
+-->
 
 Requirements
 
@@ -71,11 +73,19 @@ git clone https://github.com/nuxeo-sandbox/nuxeo-labs-user-registration
 cd nuxeo-labs-user-registration
 mvn clean install
 ```
-Notice that for unit test, credentials are set differently (see below or in the source code). To compile without running the tests:
 
+Notice that a Docker image is included for testing. It's possible to skip Docker build by setting default `skipDocker` property value to `true`:
+
+```bash
+# Skip Docker build
+mvn -DskipDocker=true clean install
 ```
+
+Notice that for unit tests, credentials are set differently (see below or in the source code). To compile without running the tests:
+
+```bash
 mvn clean install -DskipTests=true
-#to compile the test without running them:
+# To compile the tests without running them:
 mvn test-compile
 ```
 
