@@ -8,101 +8,169 @@
         content="User Registration">
 
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet"
-        href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer
-          src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto">
 
-  <style include="iron-flex iron-flex-alignment paper-material-styles">
-    .form {
+
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+    }
+
+    .ur-form {
       width: 50%;
       height: 100%;
       margin: 0 auto;
     }
 
-    .paper-card {
-      width: 100%;
-    }
 
-    .logo {
+
+    .ur-logo {
       margin: 0 auto;
       margin-top: 5%;
       margin-bottom: 5%;
       display: block;
     }
+
+    .ur-reason {
+      resize: none;
+    }
+
+    .ur-right {
+      padding-left: 15px;
+    }
+
+    .ur-hidden {
+      display: none;
+    }
   </style>
 </head>
 
-<body>
+<body class="w3-theme-l4">
 
-  <div class="form">
+  <div class="ur-form">
 
-    <img class="logo"
+    <img class="ur-logo"
          src="/nuxeo/img/user-registration-logo.png" />
 
     <!-- User request card -->
-    <div class="paper-card mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Request a User Account</h2>
-      </div>
-      <form action="#">
-        <div class="mdl-card__supporting-text">
+    <div class="w3-card">
 
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input"
-                   type="email"
-                   required>
-            <label class="mdl-textfield__label"
-                   for="sample1">Email</label>
-          </div>
+      <header class="w3-container w3-blue">
+        <h2>Request an Account</h2>
+      </header>
 
-          <div class="layout horizontal wrap">
-            <label>First Name</label>
-            <input class=""
-                   required></input>
-            <label>Last Name</label>
-            <input class=""
-                   label="Last Name"
-                   required></input>
-          </div>
-          <div class="layout horizontal wrap">
-            <label>Company</label>
-            <input class=""
-                   label="Company"
-                   required></input>
-            <label>Department</label>
-            <input class=""
-                   label="Department"
-                   required></input>
-            <label>Title</label>
-            <input class=""
-                   label="Job Title"
-                   required></input>
-          </div>
-          <label>Tell us Why You Are requesting Access</label>
-          <input label="Tell us Why You Are requesting Access"
-                 rows="3"
-                 required></input>
+      <form class="w3-container w3-white" method="post" action="/nuxeo/site/selfregistration">
 
+        <div class="w3-row">
+          <div class="w3-col">
+            <p>
+              <label>Email</label>
+              <input class="w3-input"
+                     type="email"
+                     name="email"
+                     required>
+            </p>
+          </div>
         </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">SUBMIT</button>
+
+
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <p>
+              <label>First Name</label>
+              <input class="w3-input"
+                     type="text"
+                     name="firstname"
+                     required>
+            </p>
+          </div>
+          <div class="ur-right w3-col s6">
+            <p>
+              <label>Last Name</label>
+              <input class="w3-input"
+                     type="text"
+                     name="lastname"
+                     required>
+            </p>
+          </div>
         </div>
+
+
+        <div class="w3-row">
+          <div class="w3-col s4">
+            <p>
+              <label>Company</label>
+              <input class="w3-input"
+                     type="text"
+                     name="company"
+                     required>
+            </p>
+          </div>
+          <div class="ur-right w3-col s4">
+            <p>
+              <label>Department</label>
+              <input class="w3-input"
+                     type="text"
+                     name="department"
+                     required>
+            </p>
+          </div>
+          <div class="ur-right w3-col s4">
+            <p>
+              <label>Title</label>
+              <input class="w3-input"
+                     type="text"
+                     name="jobTitle"
+                     required>
+            </p>
+          </div>
+        </div>
+
+
+        <div class="w3-row">
+          <div class="w3-col">
+            <p>
+              <label>Tell us Why You Are requesting Access</label>
+              <textarea class="ur-reason w3-input"
+                        type="text"
+                        name="reason"
+                        required></textarea>
+            </p>
+          </div>
+        </div>
+
+
+        <div class="w3-row">
+          <div class="w3-col">
+            <p>
+              <button class="w3-button w3-round w3-ripple w3-blue w3-hover-blue"
+                      type="submit">SUBMIT</button>
+            </p>
+          </div>
+        </div>
+
       </form>
 
     </div>
 
     <!-- Display result to user. -->
-    <div class="hidden"
-         elevation="1">
-      <div>
-        Your request for a user account has successfully been submitted.
+    <div class="ur-hidden ur-card w3-card">
+      <header class="w3-container w3-blue">
+        <h2>Thank you</h2>
+      </header>
+
+      <div class="w3-container w3-white">
+        <p>Your request for a user account has successfully been submitted.</p>
       </div>
     </div>
 
 
   </div>
+
 </body>
 
 </html>
