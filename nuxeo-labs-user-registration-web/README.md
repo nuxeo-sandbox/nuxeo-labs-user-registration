@@ -1,82 +1,53 @@
-# Polymer App Toolbox - Starter Kit
+# About
 
-[![Build Status](https://travis-ci.org/PolymerElements/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/PolymerElements/polymer-starter-kit)
+This is a simple HTML application for submitting a user creation request to our endpoint. Note especially that authentication is not required. See [the contribs](nuxeo/OSGI-INF/) for details on exposing an endpoint this way.
 
-This template is a starting point for building apps using a drawer-based
-layout. The layout is provided by `app-layout` elements.
+# Requirements
 
-This template, along with the `polymer-cli` toolchain, also demonstrates use
-of the "PRPL pattern" This pattern allows fast first delivery and interaction with
-the content at the initial route requested by the user, along with fast subsequent
-navigation by pre-caching the remaining components required by the app and
-progressively loading them on-demand as the user navigates through the app.
+* npm
 
-The PRPL pattern, in a nutshell:
+# Install
 
-* **Push** components required for the initial route
-* **Render** initial route ASAP
-* **Pre-cache** components for remaining routes
-* **Lazy-load** and progressively upgrade next routes on-demand
-
-## Nuxeo Stuff
-
-An empty Nuxeo Bundle that is based on the Polymer Started Kit. Common `polymer-cli` commands has been wrapped in `NPM` run-script.
-
-## Polymer Specific
-
-### Start the development server
-
-This command serves the app at `http://localhost:3000` and provides basic URL
-routing for the app:
+There are no dependencies for the application itself, so nothing to install in that regard. For development you need to install the web server:
 
 ```shell
-npm run serve
+npm install
 ```
 
-By default, a proxy is set between `http://localhost:3000/nuxeo` a `http://localhost:8080/nuxeo`, in order to share the HTTP Session between Nuxeo and your Polymer application. You can change the default value using:
+# Start the development server
+
+[Web Dev Server](https://modern-web.dev/docs/dev-server/overview/) is used for development.
 
 ```shell
-npm run serve --proxy-path="nuxeo" --proxy-target="http://localhost:8080/nuxeo"
+npm run
 ```
 
-### Build
+You can [configure it](https://modern-web.dev/docs/dev-server/cli-and-configuration/#configuration-file) using the [web-dev-server.config.mjs](web-dev-server.config.mjs) file.
 
-This command performs HTML, CSS, and JS minification on the application
-dependencies, and generates a service-worker.js file with code to pre-cache the
-dependencies based on the entrypoint and fragments specified in `polymer.json`.
-The minified files are output to the `build/unbundled` folder, and are suitable
-for serving from a HTTP/2+Push compatible server.
+**TODO**
 
-In addition the command also creates a fallback `build/bundled` folder,
-generated using fragment bundling, suitable for serving from non
-H2/push-compatible servers or to clients that do not support H2/Push.
+By default nuxeo requests are proxied to `http://localhost:8080/nuxeo`. You can modify the [proxy settings](https://modern-web.dev/guides/dev-server/proxy-to-other-servers/) in [web-dev-server.config.mjs](web-dev-server.config.mjs).
 
-    npm run build
+# Support
 
-### Preview the build
+**These features are not part of the Nuxeo Production platform.**
 
-This command serves the minified version of the app at `http://localhost:3000`
-in an unbundled state, as it would be served by a push-compatible server:
+These solutions are provided for inspiration and we encourage customers to use them as code samples and learning resources.
 
-    npm run serve -- build/unbundled
+This is a moving project (no API maintenance, no deprecation process, etc.) If any of these solutions are found to be useful for the Nuxeo Platform in general, they will be integrated directly into platform, not maintained here.
 
-This command serves the minified version of the app at `http://localhost:3000`
-generated using fragment bundling:
+# License
 
-    npm run serve -- build/bundled
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-### Run tests
+# About Nuxeo
 
-This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
-against the browsers currently installed on your machine:
+Nuxeo Platform is an open source Content Services platform, written in Java. Data can be stored in both SQL & NoSQL databases.
 
-    npm run test
+The development of the Nuxeo Platform is mostly done by Nuxeo employees with an open development model.
 
-### Adding a new view
+The source code, documentation, roadmap, issue tracker, testing, benchmarks are all public.
 
-You can extend the app by adding more views that will be demand-loaded
-e.g. based on the route, or to progressively render non-critical sections of the
-application. Each new demand-loaded fragment should be added to the list of
-`fragments` in the included `polymer.json` file. This will ensure those
-components and their dependencies are added to the list of pre-cached components
-and will be included in the `bundled` build.
+Typically, Nuxeo users build different types of information management solutions for [document management](https://www.nuxeo.com/solutions/document-management/), [case management](https://www.nuxeo.com/solutions/case-management/), and [digital asset management](https://www.nuxeo.com/solutions/dam-digital-asset-management/), use cases. It uses schema-flexible metadata & content models that allows content to be repurposed to fulfill future use cases.
+
+More information is available at [www.nuxeo.com](https://www.nuxeo.com).
