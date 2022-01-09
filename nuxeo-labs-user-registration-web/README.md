@@ -1,10 +1,12 @@
 # About
 
-This is a simple HTML application for submitting a user creation request to our endpoint. Note especially that authentication is not required. See [the contribs](nuxeo/OSGI-INF/) for details on exposing an endpoint this way.
+This is a simple HTML application for submitting a user creation request to our endpoint. Note especially that authentication is not required. See [the contribs](nuxeo/OSGI-INF/) for details on exposing a Nuxeo endpoint that does not require authentication.
+
+The application is composed of pure HTML and JS (no custom framework) with [W3.CSS](https://www.w3schools.com/w3css/default.asp) for the look and feel. This is a complete replacement of the previous application, which was based on the [Polymer Starter Kit](https://github.com/Polymer/polymer-starter-kit). That project is no longer maintained and contains several critical security vulnerabilities. Thus the application was re-written in part to avoid the maintenance headaches associated with custom frameworks. Given the simplistic requirements of this application, coupled with advancements in OOTB browser support, any full front-end stack is overkill and more difficult to maintain.
 
 # Requirements
 
-* npm
+Npm is required for development. There are no requirements for build/runtime.
 
 # Install
 
@@ -27,6 +29,10 @@ You can [configure it](https://modern-web.dev/docs/dev-server/cli-and-configurat
 **TODO**
 
 By default nuxeo requests are proxied to `http://localhost:8080/nuxeo`. You can modify the [proxy settings](https://modern-web.dev/guides/dev-server/proxy-to-other-servers/) in [web-dev-server.config.mjs](web-dev-server.config.mjs).
+
+# Usage
+
+All form fields are required. The application calls the `javascript.api_UserRegistration_requestAccount` Automation Script to make the request (available in the ["Nuxeo Self Registration" Studio Template](https://doc.nuxeo.com/studio/default-configuration-templates/#nuxeo-self-registration))
 
 # Support
 
