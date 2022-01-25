@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "wds"
+    "start": "npx http-server ./src -p 9000"
   }
 }
