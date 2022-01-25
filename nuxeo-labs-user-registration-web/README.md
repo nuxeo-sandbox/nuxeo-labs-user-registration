@@ -6,33 +6,29 @@ The application is composed of pure HTML and JS (no custom framework) with [W3.C
 
 # Requirements
 
-Npm is required for development. There are no requirements for build/runtime.
+Npm (5.2.0+) is required for development. There are no requirements for build/runtime.
 
 # Install
 
-There are no dependencies for the application itself, so nothing to install in that regard. For development you need to install the web server:
-
-```shell
-npm install
-```
+There are no dependencies for the application, so nothing to install. In other words, `npm install` is not required.
 
 # Start the development server
 
-[Web Dev Server](https://modern-web.dev/docs/dev-server/overview/) is used for development.
+[http-server](https://www.npmjs.com/package/http-server) is used for development via `npx` so that nothing is permanently installed. You can start the development server like so:
 
 ```shell
-npm run
+npm start
 ```
 
-You can [configure it](https://modern-web.dev/docs/dev-server/cli-and-configuration/#configuration-file) using the [web-dev-server.config.mjs](web-dev-server.config.mjs) file.
+You can configure the dev server by editing the [package.json](package.json) file.
 
 **TODO**
 
-By default nuxeo requests are proxied to `http://localhost:8080/nuxeo`. You can modify the [proxy settings](https://modern-web.dev/guides/dev-server/proxy-to-other-servers/) in [web-dev-server.config.mjs](web-dev-server.config.mjs).
+By default nuxeo requests are proxied to `http://localhost:8080/nuxeo`.
 
 # Usage
 
-All form fields are required. The application calls the `javascript.api_UserRegistration_requestAccount` Automation Script to make the request (available in the ["Nuxeo Self Registration" Studio Template](https://doc.nuxeo.com/studio/default-configuration-templates/#nuxeo-self-registration))
+All form fields are required. The application calls the `javascript.api_UserRegistration_requestAccount` Automation Script to make the request (this script is available in the ["Nuxeo Self Registration" Studio Template](https://doc.nuxeo.com/studio/default-configuration-templates/#nuxeo-self-registration))
 
 # Support
 

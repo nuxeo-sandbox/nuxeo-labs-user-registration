@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "npx http-server ./src -p 9000"
+    "start": "npx http-server ./src -o -p 9000"
   }
 }
