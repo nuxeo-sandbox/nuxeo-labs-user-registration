@@ -9,7 +9,7 @@
 
   <groupId>org.nuxeo.labs.user.registration</groupId>
   <artifactId>nuxeo-labs-user-registration-parent</artifactId>
-  <version>2023.0.0-SNAPSHOT</version>
+  <version>2023.1.0-SNAPSHOT-SNAPSHOT</version>
   <name>Nuxeo User Registration parent</name>
   <description />
   <packaging>pom</packaging>
