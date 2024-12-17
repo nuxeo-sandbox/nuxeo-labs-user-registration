@@ -17,7 +17,7 @@ import org.nuxeo.runtime.test.runner.FeaturesRunner;
 import org.nuxeo.runtime.test.runner.ServletContainerFeature;
 import org.nuxeo.user.registration.endpoint.UserRegistrationObject;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import java.io.IOException;
 
 @RunWith(FeaturesRunner.class)
