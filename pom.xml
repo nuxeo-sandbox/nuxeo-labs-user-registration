@@ -5,28 +5,24 @@
     <artifactId>nuxeo-parent</artifactId>
     <version>2025.0.102</version>
   </parent>
-
   <groupId>org.nuxeo.labs.user.registration</groupId>
   <artifactId>nuxeo-labs-user-registration-parent</artifactId>
   <version>2025.0.0-SNAPSHOT</version>
   <name>Nuxeo User Registration parent</name>
   <description/>
   <packaging>pom</packaging>
-
   <properties>
     <!-- Skip Nuxeo enforcer rules by default -->
     <nuxeo.skip.enforcer>true</nuxeo.skip.enforcer>
     <nuxeo.target.version>2025.*</nuxeo.target.version>
     <skipDocker>false</skipDocker>
   </properties>
-
   <modules>
     <module>nuxeo-labs-user-registration-core</module>
     <module>nuxeo-labs-user-registration-web</module>
     <module>nuxeo-labs-user-registration-package</module>
     <module>nuxeo-labs-user-registration-docker</module>
   </modules>
-
   <repositories>
     <repository>
       <id>maven-public</id>
@@ -51,7 +47,6 @@
       </snapshots>
     </repository>
   </repositories>
-
   <pluginRepositories>
     <pluginRepository>
       <id>maven-public</id>
@@ -74,6 +69,21 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.1.1</version>
+        <configuration>
+          <projectVersionPolicyId>SemVerVersionPolicy</projectVersionPolicyId>
+          <tagNameFormat>@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <scmReleaseCommitComment>Release @{releaseLabel}</scmReleaseCommitComment>
+          <scmDevelopmentCommitComment>Post Release @{releaseLabel}</scmDevelopmentCommitComment>
+          <pushChanges>false</pushChanges>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
   <dependencyManagement>
     <dependencies>
@@ -99,4 +109,9 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <scm>
+    <connection>scm:git:${project.scm.url}</connection>
+    <developerConnection>scm:git:${project.scm.url}</developerConnection>
+    <url>https://github.com/nuxeo-sandbox/nuxeo-labs-user-registration</url>
+  </scm>
 </project>
